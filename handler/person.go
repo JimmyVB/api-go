@@ -1,3 +1,18 @@
+// Package classification Petstore API.
+//
+// Documentation for Person API
+//
+//     Schemes: http
+//     Host: localhost
+//     BasePath: /v1
+//     Version: 1.0.0
+//
+//     Consumes:
+//     - application/json
+//
+//     Produces:
+//     - application/json
+// swagger:meta
 package handler
 
 import (
@@ -9,6 +24,20 @@ import (
 	"net/http"
 )
 
+// A list of persons return in the response
+// swagger:response personsResponse
+type personsResponse struct {
+	// All persons in the db
+	// in: body
+	Body []models.Person
+}
+
+// swagger:route GET /persons/api all listPersons
+// Return a list of persons from the database
+// responses:
+//	200: personsResponse
+
+// GetAll returns the persons from the db
 func GetAll(writer http.ResponseWriter, request *http.Request) {
 	var persons []models.Person
 	db := connection.DB()

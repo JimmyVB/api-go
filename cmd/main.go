@@ -13,8 +13,6 @@ func main() {
 	driver := connection.Postgres
 	connection.New(driver)
 
-	//	connection.DB().AutoMigrate(&models.Person{})
-
 	router := mux.NewRouter()
 	routes.RoutePerson(router)
 
@@ -23,7 +21,7 @@ func main() {
 		Handler: router,
 	}
 
-	log.Println("Servidor iniciado en el puerto 8081")
+	log.Println("Servidor iniciado en el puerto 8082")
 	err := server.ListenAndServe()
 	if err != nil {
 		log.Printf("Error en el servidor: %v\n", err)

@@ -11,7 +11,8 @@ func RoutePerson(router *mux.Router) {
 	subRoute.HandleFunc("/all", handler.GetAll).Methods("GET")
 	subRoute.HandleFunc("/save", handler.Save).Methods("POST")
 	subRoute.HandleFunc("/update/{id}", handler.Update).Methods("PUT")
-	subRoute.HandleFunc("/delete/{id}", handler.Delete).Methods("POST")
+	subRoute.HandleFunc("/delete/{id}", handler.Delete).Methods("DELETE")
 	subRoute.HandleFunc("/find/{id}", handler.Get).Methods("GET")
+	//subRoute.HandleFunc("/docs", ).Methods("GET")
 
 }

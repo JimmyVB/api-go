@@ -1,0 +1,57 @@
+basePath: /v1
+consumes:
+- application/json
+definitions:
+  Person:
+    properties:
+      CreatedAt:
+        format: date-time
+        type: string
+      DeletedAt:
+        format: date-time
+        type: string
+      ID:
+        format: uint64
+        type: integer
+      UpdatedAt:
+        format: date-time
+        type: string
+      age:
+        format: uint8
+        type: integer
+        x-go-name: Age
+      lastname:
+        type: string
+        x-go-name: LastName
+      name:
+        type: string
+        x-go-name: Name
+    type: object
+    x-go-package: api-go/models
+host: localhost
+info:
+  description: Documentation for Person API
+  title: Petstore API.
+  version: 1.0.0
+paths:
+  /persons/api:
+    get:
+      description: Return a list of persons from the database
+      operationId: listPersons
+      responses:
+        "200":
+          $ref: '#/responses/personsResponse'
+      tags:
+      - all
+produces:
+- application/json
+responses:
+  personsResponse:
+    description: A list of persons return in the response
+    schema:
+      items:
+        $ref: '#/definitions/Person'
+      type: array
+schemes:
+- http
+swagger: "2.0"
